@@ -7,6 +7,7 @@ public class Application {
     public static void main(String[] args){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         CustomerService service =applicationContext.getBean("customerService",CustomerService.class);
+
         System.out.println(service.findAll().get(0).getFirstname()+":"+service.findAll().get(0).getLastName());
         System.out.println(service.findAll().get(1).getFirstname()+":"+service.findAll().get(1).getLastName());
     }
