@@ -10,26 +10,24 @@ import java.util.List;
 
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
-
-    //@Autowired
     private ICustomerRepository customerRepository;
+
+    public CustomerServiceImpl() {
+    }
+
+    public CustomerServiceImpl(ICustomerRepository customerRepository) {
+        System.out.println("We r using constructor injection");
+        this.customerRepository = customerRepository;
+    }
+
 
     public ICustomerRepository getCustomerRepository() {
         return customerRepository;
     }
 
-    //@Autowired
-    public void setCustomerRepository(ICustomerRepository customerRepository) {
-        System.out.println("We are using setter");
-        this.customerRepository = customerRepository;
-    }
-
-    public CustomerServiceImpl() {
-    }
-
     @Autowired
-    public CustomerServiceImpl(ICustomerRepository customerRepository) {
-        System.out.println("We r using constructor injection");
+    public void setCustomerRepository(ICustomerRepository customerRepository) {
+        System.out.println("We r using setter injection");
         this.customerRepository = customerRepository;
     }
 
