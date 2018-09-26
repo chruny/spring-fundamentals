@@ -2,15 +2,18 @@ import com.pluralsight.repository.HibernateCustomerRepositoryImpl;
 import com.pluralsight.repository.ICustomerRepository;
 import com.pluralsight.service.CustomerService;
 import com.pluralsight.service.CustomerServiceImpl;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 @ComponentScan({"com.pluralsight"})
 public class AppConfig {
 
-    /*@Bean(name="customerService")
+    @Bean(name="customerService")
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public CustomerService getCustomerService(){
         //CustomerServiceImpl service= new CustomerServiceImpl(getCustomerRepository());
         CustomerServiceImpl service= new CustomerServiceImpl();
@@ -18,8 +21,8 @@ public class AppConfig {
         return service;
     }
 
-    /*@Bean(name="customerRepository")
+    @Bean(name="customerRepository")
     public ICustomerRepository getCustomerRepository(){
         return new HibernateCustomerRepositoryImpl();
-    }*/
+    }
 }

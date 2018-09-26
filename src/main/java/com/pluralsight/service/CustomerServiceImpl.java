@@ -1,7 +1,6 @@
 package com.pluralsight.service;
 
 import com.pluralsight.model.Customer;
-import com.pluralsight.repository.HibernateCustomerRepositoryImpl;
 import com.pluralsight.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
